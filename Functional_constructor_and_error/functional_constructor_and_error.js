@@ -1,0 +1,1 @@
+console.log("functional_constructor_and_error");
