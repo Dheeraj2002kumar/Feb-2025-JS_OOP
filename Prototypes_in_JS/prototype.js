@@ -49,3 +49,13 @@ person1.greet(); // Output: Hello, my name is Alice and I am 30 years old.
 // In this example, the `greet` method is added to the `Person` prototype. This means all instances of `Person` (such as `person1`) will inherit the `greet` method and can use it.
 
 // Prototypes are fundamental to how inheritance works in JavaScript. If you're looking to dive deeper, I can provide more examples or details about specific aspects of prototypes.
+
+
+
+
+
+
+
+
+// ------------------ prototype about full explanation ----------------
+
