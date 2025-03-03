@@ -62,6 +62,18 @@ let myNewArr = [1, 2, 3, 4, 5];
 
 
 
-// Class and object
+// Class and object ----------------------
+class Vehicle{
+    // constructor or constructor method
+    constructor(make, model){
+        this.make = make;
+        this.model = model;
+    } 
+
+    // function or method
+    start(){
+
+    }
+}
 
 
