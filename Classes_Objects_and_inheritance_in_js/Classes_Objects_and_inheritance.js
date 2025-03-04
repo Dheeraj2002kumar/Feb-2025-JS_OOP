@@ -72,8 +72,22 @@ class Vehicle{
 
     // function or method
     start(){
-
+        return `${this.model} is a car from ${this.make}`;
     }
 }
 
+// Inheritance
+class Car extends Vehicle {
+    drive(){
+        return `${this.make} : This is a inheritance example`;
+    }
+}
 
+// myCar is Object
+let myCar = new Car("Toyota", "Corolla");
+console.log(myCar.start());
+console.log(myCar.drive());
+
+// vehOne is Object
+let vehOne = new Vehicle("Toyota", "Corolla");
+console.log(vehOne.make);
