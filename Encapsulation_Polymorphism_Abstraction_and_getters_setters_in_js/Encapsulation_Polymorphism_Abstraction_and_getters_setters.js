@@ -52,6 +52,3 @@ let myMachine = new CoffeMachine();
 
 // console.log(myMachine.start());
 // console.log(myMachine.brewCoffe());
-
-
-
