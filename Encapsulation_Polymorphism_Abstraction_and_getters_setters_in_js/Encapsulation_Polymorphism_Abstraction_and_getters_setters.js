@@ -2,6 +2,8 @@ console.log("Output => \n");
 
 // Encapsulation_Polymorphism_Abstraction_and_getters_setters_in_js
 
+
+
 // Encapsulation ----------------------
 class BankAccount{
     #balance = 0; // # symbol for hidding the data like balance
