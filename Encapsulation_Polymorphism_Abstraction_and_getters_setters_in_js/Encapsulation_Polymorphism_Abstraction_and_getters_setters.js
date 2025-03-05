@@ -4,7 +4,7 @@ console.log("Output => \n");
 
 
 
-// Encapsulation ----------------------
+// -------------------- Encapsulation ----------------------
 class BankAccount{
     #balance = 0; // # symbol for hidding the data like balance
 
