@@ -1,28 +1,28 @@
-// User Authentication System with Password Hashing and JWT
+const AuthSystem = require('./AuthSystem');
 
-// import required modules
-const bcrypt = required('bcryptjs');
-const jwt = required('jsonwebtoken');
+(async () => {
+    const authSystem = new AuthSystem();
 
-// Define the User Class 
-class User {
-    constructor (username, password){
-        this.username = username;
-        // Hash the password when the user is created
-        this.setPassword(password);
+    // Register users
+    await authSystem.registerUser("john_doe", "password123");
+    await authSystem.registerUser("jane_smith", "securePass");
+
+    // Attempt to login with correct credentials
+    const token = await authSystem.loginUser("john_doe", "password123");  // Should succeed
+
+    // Try with incorrect login credentials
+    await authSystem.loginUser("john_doe", "password123");  // Should fail
+
+    // Test JWT token verification
+    if (token) {
+        const decoded = authSystem.verifyToken(token);
+        if (decoded) {
+            console.log("Token is valid:", decoded);
+            console.log()
+        }
     }
 
-    // Private field for password hash
-    #passwordHash;
-
-    // set the password (hashes it before storing 
-    async setPassword(password){
-        this.#passwordHash = await bcrypt.hash(password, 10);
-    }
-
-    // Authenticate by comparing the provided password with the stored hash
-    async authenticate(password){
-        return await bcrypt.compare(password, this.#passwordHash);
-    }
-}
-
+    // Test with an invalid token
+    const invalidToken = "invalid.jwt.token";
+    authSystem.verifyToken(invalidToken);  // Should fail
+})();
