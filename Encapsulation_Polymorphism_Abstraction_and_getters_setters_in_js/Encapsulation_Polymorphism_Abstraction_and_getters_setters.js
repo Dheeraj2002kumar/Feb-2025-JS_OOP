@@ -97,10 +97,90 @@ class Calculator {
 }
 
 // Calling the static method directly on the class
-console.log(Calculator.add(5, 3)); // Output: 8
+// console.log(Calculator.add(5, 3)); // Output: 8
 
 // Creating an instance of the class
 const calc = new Calculator();
 
 // Calling the instance method on the instance
-console.log(calc.subtract(5, 3)); // Output: 2
+// console.log(calc.subtract(5, 3)); // Output: 2
+
+
+
+
+// Getter and setter ---------------
+
+/*
+In JavaScript, getter and setter methods allow you to define how to access and modify the properties of an object. They provide a way to encapsulate the internal representation of the data, allowing you to control how the data is accessed and modified.
+
+Getter Method
+A getter method is used to access the value of a property. It allows you to execute some code when a property is read. You define a getter method using the get keyword.
+
+Setter Method
+A setter method is used to modify the value of a property. It allows you to execute some code when a property is set. You define a setter method using the set keyword.
+
+Example
+Let's add getter and setter methods to the Employee class to manage the name property.
+
+
+*/ 
+
+class Employee {
+    constructor(name) {
+        this._name = name; // Use an underscore to indicate a private variable
+    }
+
+    // Getter method for name
+    get name() {
+        return this._name;
+    }
+
+    // Setter method for name
+    set name(newName) {
+        if (typeof newName === 'string' && newName.length > 0) {
+            this._name = newName;
+        } else {
+            console.error('Invalid name');
+        }
+    }
+}
+
+// Example usage
+const emp = new Employee('John Doe');
+// console.log(emp.name); // Output: John Doe
+
+emp.name = 'Jane Smith';
+// console.log(emp.name); // Output: Jane Smith
+
+// emp.name = ''; // Output: Invalid name
+// console.log(emp.name); // Output: Jane Smith
+
+
+
+
+class Employee1{
+    #salary;
+    constructor(name, salary){
+        if (salary < 0){
+            throw new Error("Salary  cannot be in negative!");            
+        }
+
+        this.name = name;
+        this._salary = salary;  // underscore is used for private 
+    }
+
+    get salary(){
+        return `You are not allowed to see salary`;
+    }
+
+    set salary(value){
+        if (value < 0){
+            console.error("Invalid Salary");
+        } else {
+            this._salary = value;
+        }
+    }
+}
+
+let emp1 = new Employee1("Alice", -50000);
+console.log(emp1._salary);
